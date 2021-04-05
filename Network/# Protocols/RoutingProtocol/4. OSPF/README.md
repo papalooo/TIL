@@ -26,4 +26,5 @@ en　-　권한 활성화
 conf t　-　설정모드   
 router ospf 'Process id'　-　ospf 프로토콜 사용 선언 (번호)   
 router-id '루프백주소' - 라우터의 id 를 루프백 주소로 지정  
-net '네트워크주소' '와일드마스크' area area-id　-　같은 id 영역으로 구성한 것을 단일 영역 OSPF 라 하고 2개 이상의 id 영역으로 구성한 것을 다중 영역 OSPf 라고한다.   
+net '네트워크주소' '와일드마스크' area area-id　-　루프백도 라우팅 해줘야한다.   
+같은 id 영역으로 구성한 것을 단일 영역 OSPF 라 하고 2개 이상의 id 영역으로 구성한 것을 다중 영역 OSPf 라고한다.   
