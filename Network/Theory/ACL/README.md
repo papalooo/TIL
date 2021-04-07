@@ -9,6 +9,9 @@ ip access-group [number] [in/out]
 L3 헤더의 Source Address(출발지 ip) 만으로 판단한다.   
 ### 예시   
 - 같은 대역내 한 pc 만 외부로 통신을 허용   
+![stacl](./stacl.png)   
+
+.1 대역에서 acl 을 이용해서 .1 PC 의 패킷을 인바운드 정책으로 차단하고 나머지는 허용했기 때문에 .2 PC 의 패킷만 지나갈 수 있다.   
 
 ### 주사용처 - telnet   
 Router(conf)# access-list [number] [permit/deny] host [접속ip]   
@@ -24,6 +27,10 @@ line vty [n1] [n2] : n1 ~ n2 까지의 텔넷 접속을 허용한다
 - - -
 ## Extended ACL   
 L3 헤더의 Source Address, Destination Address, Protocol, TTL 등의 정보와 L4 헤더의 Source Port, Destination Port, TCP Flag 등의 정보를 기반으로 판단한다.   
+### 예시   
+![exacl](./exacl.png)   
+
+확장 ACL을 이용해서 .2 대역에서 .3라우터로 telnet 접근을 제한하되 핑은 되도록 설정했다.
 ### 형태
 Router(conf)# access-list [number] [deny/permit] [tcp/udp] host [접속ip] host [목적지ip] eq [port]     
 
