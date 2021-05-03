@@ -45,12 +45,28 @@
 >- 상위 계층으로부터 받은 데이터 or 상위 계층에 전달할 데이터   
 >- 최대크기 : 1500byte , 최소크기 : 46byte
 >- 만약 데이터 크기가 최소크기인 46byte 보다 작을 땐, padding 영역을 추가하여 46byte 로 만든다. (padding 영역은 0 으로 채워짐)   
+> > ### IEEE 802.3 CSMA/CD   
+> > IEEE 802.3 에선 Data 부분에는 아래의 항목이 크기만큼 대체된다.   
+> > ### **DSAP** (1byte)   
+> > - Destination Service Access Point   
+> > - 목적지에서 확인 할 상위 계층 프로토콜 정보   
+> > ### **SSAP** (1byte)   
+> > - Source Service Access Point   
+> > - 출발지에서 확인 할 상위 계층 프로토콜 정보   
+> > ### **Ctrl** (1~2byte)   
+> > - 네트워크 환경 제어 값   
+> > ### **OUI** (3byte)   
+> > - MAC 주소의 OUI 만 추출하여 명시 함   
+> > ### **Type** (2byte)   
+> > - DSAP, SSAP 로 표현할 수 없는 상위 계층의 프로토콜 종류를 정확하게 명시 함   
+> > ### **~1500byte = Data**
 ## **FCS** (Frame Check Sequence)   
 >- Preamble 과 FCS 부분을 제외한 유효한 MAC Frame 의 비트열에서 오류를 검사한다.   
 
 ## **CRC** (Cyclic Redundancy Check)
->- 송신측의 데이터로부터 다항식에 의해 추출된 결과를 여분의 오류검사필드(FCS)에 덧븉여 보내면 수신측에서는 동일한 방법으로 추출한 결과와의 일치성으로 오류검사를 하는 방식
+>- 송신측의 데이터로부터 다항식에 의해 추출된 결과를 여분의 오류검사필드(FCS)에 덧븉여 보내면 수신측에서는 동일한 방법으로 추출한 결과와의 일치성으로 오류검사를 하는 방식   
 
+- - -
 ## [SPF](https://networkencyclopedia.com/shortest-path-first-spf/) (Shortest Path First)
 SPF 알고리즘은 Dijkstra 알고리즘으로도 불린다.   
 이 알고리즘은 목적지까지의 최단 경로 트리를 만드는 알고리즘이다.   
